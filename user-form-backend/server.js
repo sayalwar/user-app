@@ -1,5 +1,5 @@
-const express = require('express');
 const mysql = require('mysql');
+const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -7,11 +7,13 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// Use environment variables provided by Railway, or fallback to localhost for local testing
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password', // Replace with your actual MySQL password
-  database: 'nileshdb'
+  host: process.env.MYSQLHOST || 'localhost',
+  user: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQLPASSWORD || '',      // add your local MySQL password here if testing locally
+  database: process.env.MYSQLDATABASE || 'railway',
+  port: process.env.MYSQLPORT || 3306
 });
 
 db.connect(err => {
@@ -34,7 +36,6 @@ app.post('/submit', (req, res) => {
   });
 });
 
-// ✅ This is the new route to return all data
 app.get('/all', (req, res) => {
   const sql = 'SELECT * FROM users';
   db.query(sql, (err, results) => {
@@ -46,6 +47,8 @@ app.get('/all', (req, res) => {
   });
 });
 
-app.listen(3001, () => {
-  console.log('Server running on port 3001');
+// Use Railway provided port or default to 3001 locally
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
