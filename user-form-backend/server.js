@@ -9,11 +9,11 @@ app.use(bodyParser.json());
 
 // Use environment variables provided by Railway, or fallback to localhost for local testing
 const db = mysql.createConnection({
-  host: process.env.MYSQLHOST || 'localhost',
-  user: process.env.MYSQLUSER || 'root',
-  password: process.env.MYSQLPASSWORD || '',      // add your local MySQL password here if testing locally
-  database: process.env.MYSQLDATABASE || 'railway',
-  port: process.env.MYSQLPORT || 3306
+  host: 'mysql.railway.internal',
+  user: 'root',
+  password: 'CIexmBtkqHwghaRAUCwMELXuszfzbaFC',      // add your local MySQL password here if testing locally
+  database: 'railway',
+  port: 3306
 });
 
 db.connect(err => {
