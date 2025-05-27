@@ -13,7 +13,7 @@ const db = mysql.createConnection({
   user: 'root',
   password: 'CIexmBtkqHwghaRAUCwMELXuszfzbaFC',      // add your local MySQL password here if testing locally
   database: 'railway',
-  port: 3306
+  port: 58673
 });
 
 db.connect(err => {
