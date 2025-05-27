@@ -8,7 +8,7 @@ function App() {
   const [userList, setUserList] = useState([]);
   const [checkDisabled, setCheckDisabled] = useState(false);
 
-  const BASE_URL = 'https://firstuserdataintake.up.railway.app';
+  const BASE_URL = 'https://user-app-production-3bc5.up.railway.app/';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
