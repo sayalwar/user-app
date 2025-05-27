@@ -8,7 +8,7 @@ function App() {
   const [userList, setUserList] = useState([]);
   const [checkDisabled, setCheckDisabled] = useState(false);
 
-  const BASE_URL = 'http://localhost:3001'; // Replace with Railway URL after deployment
+  const BASE_URL = 'https://firstuserdataintake.up.railway.app '; // Replace with Railway URL after deployment
 
   const handleSubmit = async (e) => {
     e.preventDefault();
