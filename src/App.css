@@ -36,7 +36,14 @@
     transform: rotate(360deg);
   }
 }
-
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 30px;
+  gap: 30px;
+}
 /* Layout Container */
 .app-container {
   display: flex;
